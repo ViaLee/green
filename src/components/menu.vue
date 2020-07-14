@@ -1,13 +1,13 @@
 <template>
   <div class="hello">
-    <div class="top flex-left">
-      <img src="../assets/logo.png" style="width:30px;height:30px;"/>
+    <div class="top-box flex-left">
+      <img class="portrait" src="../assets/logo.png" style="width:30px;height:30px;"/>
       <div v-if="!isCollapse" class="userInfo">
         <div>{{userName}}</div>
         <div>{{account}}</div>
       </div>
     </div>
-    <div>
+    <div class="menu-box">
       <el-menu router
                class="el-menu-vertical-demo"
                @open="handleOpen"
@@ -53,7 +53,7 @@
     name: 'menu',
     data() {
       return {
-        userName: 'admin',
+        userName: this.$store.state.name,
         account: '登录后获取用户账号',
         profile: ''
       }
@@ -95,7 +95,6 @@
   }
 
   .hello {
-    border: 1px solid #42b983;
     background: #545c64;
     color: aliceblue;
     height: 100%;
@@ -104,5 +103,16 @@
   .title{
     width: 100px;
     display: inline-block;
+  }
+
+  .top-box{
+    padding-right:10px;
+    font-size: 14px;
+  }
+  .el-menu{
+    border-right: 0;
+  }
+  .portrait{
+    margin-left: 5px;
   }
 </style>
